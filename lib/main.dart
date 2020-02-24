@@ -30,6 +30,7 @@ import 'components/menu_widget.dart';
 import 'components/picker_main.dart';
 import 'components/progress_widget.dart';
 import 'custom/refreshListView_test.dart';
+import 'custom/stateView_test.dart';
 
 void main() => runApp(MyApp());
 
@@ -82,6 +83,7 @@ class MyApp extends StatelessWidget {
         'picker_main': (context) => PickerMain(),
         'progress_widget': (context) => ProgressMain(),
         'refresh_listView': (context) => RefreshListViewTest(),
+        'stateView_test': (context) => StateViewTest(),
       },
       home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
@@ -177,6 +179,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 style: TextStyle(fontSize: 20),
               ),
               itemView(context, "RefreshListView", "refresh_listView"),
+              itemView(context, "StateView", "stateView_test"),
             ],
           ),
         ),

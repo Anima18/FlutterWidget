@@ -75,4 +75,6 @@ flutter:
   # see https://flutter.dev/custom-fonts/#from-packages
   assets:
     - icons/ic_launcher.png
+    - icons/list_request_no_data.png
+    - icons/list_request_error.png
     - images/image1.jpg
