@@ -1,20 +1,19 @@
 import 'package:flutter/material.dart';
 
 import 'refreshListView/listItem_creator.dart';
+import 'package:flutter_widget/entity/jjb_data_entity.dart';
 
-class WordListItemView<String> extends ListItemCreator<String> {
+class WordListItemView extends ListItemCreator<JjbDataDataList> {
+
+
+
   @override
-  Widget bind(int position, String data) {
-    return  Row(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: <Widget>[
-        Image.asset("icons/ic_launcher.png", width: 72, height: 72,),
-        SizedBox(width: 16,),
-        Center(
-          child: Text("$position . $data"),
-        )
-      ],
+  Widget bind(int position, JjbDataDataList data) {
+    return  Container(
+      height: 56,
+      child: Center(
+        child: Text("${data.zhiciFname} - ${data.banciFname}"),
+      ),
     );
   }
 

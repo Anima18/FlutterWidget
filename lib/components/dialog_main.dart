@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_demo/components/loading_dialog.dart';
+import 'package:flutter_widget/components/loading_dialog.dart';
+import 'package:flutter_widget/custom/request/loadingDialog.dart';
 
 class DialogMain extends StatelessWidget {
   @override
@@ -103,17 +104,21 @@ class DialogMain extends StatelessWidget {
   }
 
   void showLoadingDialog(BuildContext context) {
-    showDialog(
+    /*showDialog(
         context: context,
         barrierDismissible: false,
         builder: (BuildContext context) {
           return LoadingDialog(
-            title: "加载中...",
+            title: "正在加载，请稍后...",
+            isCancel: true,
             cancelListener: () {
               print("你取消了请求");
             },
           );
-        });
+        });*/
+    ProgressDialog("正在处理中，请稍后...", isCancel: true, onCancel: () {
+      print("你取消了请求");
+    }).show(context);
   }
 
   //https://www.jianshu.com/p/b03f34202dff
@@ -129,15 +134,14 @@ class DialogMain extends StatelessWidget {
               Text("内容内容内容内容内容内容内容"),
             ],
           );
-        }
-    );
+        });
   }
 
   //https://www.jianshu.com/p/2cc402d66af5
   void showSimpleDialog(BuildContext context) {
     showDialog(
         context: context,
-        builder: (BuildContext context){
+        builder: (BuildContext context) {
           return SimpleDialog(
             title: Text("这是标题"),
             children: <Widget>[
@@ -154,9 +158,7 @@ class DialogMain extends StatelessWidget {
                 },
               ),
             ],
-
           );
-        }
-    );
+        });
   }
 }

@@ -73,6 +73,9 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+  module:
+    androidX: true
+
   assets:
     - icons/ic_launcher.png
     - icons/list_request_no_data.png

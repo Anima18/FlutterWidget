@@ -14,8 +14,8 @@ class LoadingDialog extends Dialog {
     BorderRadiusGeometry borderRadius,
     EdgeInsetsGeometry padding,
     this.cancelListener,
-  }): _borderRadius = borderRadius == null ? BorderRadius.circular(10) : borderRadius,
-        _padding = padding == null ? EdgeInsets.fromLTRB(20, 15, 20, 15) : padding,
+  }): _borderRadius = borderRadius == null ? BorderRadius.circular(8) : borderRadius,
+        _padding = padding == null ? EdgeInsets.fromLTRB(20, 16, 20, 16) : padding,
         _color = color == null ? Colors.white : color,
         _textColor = textColor == null ? Colors.black : textColor;
 
