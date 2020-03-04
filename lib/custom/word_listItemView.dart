@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'refreshListView/listItem_creator.dart';
 import 'package:flutter_widget/entity/jjb_data_entity.dart';
+import 'refreshListView/refresh_listView.dart';
 
 class WordListItemView extends ListItemCreator<JjbDataDataList> {
 
@@ -12,7 +12,7 @@ class WordListItemView extends ListItemCreator<JjbDataDataList> {
     return  Container(
       height: 56,
       child: Center(
-        child: Text("${data.zhiciFname} - ${data.banciFname}"),
+        child: Text("$position . ${data.zhiciFname} - ${data.banciFname}"),
       ),
     );
   }

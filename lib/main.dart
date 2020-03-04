@@ -31,6 +31,7 @@ import 'components/picker_main.dart';
 import 'components/progress_widget.dart';
 import 'custom/refreshListView_test.dart';
 import 'custom/stateView_test.dart';
+import 'custom/searchPanel_test.dart';
 
 void main() => runApp(MyApp());
 
@@ -84,6 +85,7 @@ class MyApp extends StatelessWidget {
         'progress_widget': (context) => ProgressMain(),
         'refresh_listView': (context) => RefreshListViewTest(),
         'stateView_test': (context) => StateViewTest(),
+        'searchPanel_test': (context) => ExpansionPanelPage(),
       },
       home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
@@ -180,6 +182,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               itemView(context, "RefreshListView", "refresh_listView"),
               itemView(context, "StateView", "stateView_test"),
+              itemView(context, "SearchPanel", "searchPanel_test"),
             ],
           ),
         ),

@@ -1,5 +1,4 @@
 
-import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_widget/custom/refreshListView/refresh_listView.dart';
 import 'package:flutter_widget/custom/request/netweorkRequest.dart';
@@ -17,39 +16,35 @@ class RefreshListViewTest extends StatelessWidget {
         title: Text("RefreshList"),
       ),
       body: RefreshListView<JjbDataDataList>(
-        pageSize: 30,
+        pageSize: 20,
         itemViewCreator: WordListItemView(),
         onItemClick: (int position, dynamic data) {
           print("$position ======= $data");
         },
         onDataRequest: (int page, int pageSize, RefreshListViewState state) async {
-          print("======onRefresh======== $page ============$pageSize");
-          String url = "http://192.168.60.93:8080/utdcjjb/fdjiaojiebanlog/list.do?rows=$pageSize&page=$page&sidx=lrtime&sord=desc";
-          NetworkRequest<JjbDataEntity>(url).get(
-              onSuccess: (JjbDataEntity data) {
-                if (data.result == "1") {
-                  var xList = data.data.xList;
-                  state.showData(xList);
-                } else {
-                  state.showError(data.info);
-                }
-              },
-              onError: (String message) => state.showError(message));
-
-          /*Future.delayed(Duration(seconds: 3)).then((e) {
-            //state.showData(null);
-            //state.showError("网络请求失败");
-            if(state.getDataSize() < 100) {
-              List<String> datas = generateWordPairs().take(pageSize).map((e) => e.asPascalCase as String).toList();
-              print(datas);
-              state.showData(datas);
-            }else {
-              state.showError("网络请求失败");
-            }
-          });*/
+          requestData(page, pageSize, state);
         },
       )
 
     );
   }
+
+  void requestData(int page, int pageSize, RefreshListViewState state) {
+    print("======onRefresh======== $page ============$pageSize");
+    String url = "http://192.168.60.93:8080/utdcjjb/fdjiaojiebanlog/list.do?rows=$pageSize&page=$page&sidx=lrtime&sord=desc";
+    NetworkRequest<JjbDataEntity>(url, requestHeaders: {
+      "Cookie":"JSESSIONID=534FD6FAA2A18DDD824751155332C78F",
+      "user-agent": "android"
+    }).get(
+        onSuccess: (JjbDataEntity data) {
+          if (data.result == "1") {
+            var xList = data.data.xList;
+            state.showData(xList);
+          } else {
+            state.showError(data.info);
+          }
+        },
+        onError: (String message) => state.showError(message));
+  }
+
 }

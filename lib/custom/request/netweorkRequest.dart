@@ -46,11 +46,11 @@ class NetworkRequest<T> {
     if(this.requestHeaders == null) {
       requestHeaders = Map();
     }
-    requestHeaders.addAll(
+    /*requestHeaders.addAll(
         {
-          "Cookie":"JSESSIONID=BD09D98818048F8B43A12F0AE56C3347",
+          "Cookie":"JSESSIONID=DC08A331D8F83BFCE4FD806D3D4A9413",
           "user-agent": "android"
-        });
+        });*/
   }
 
   Future<T> get({OnSuccess<T> onSuccess, OnError onError}) async {
